@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config>
+  <secrets foo="bar"/>
+  <paths file="fixtures/paths.xml"/>
+  <api file="fixtures/global.xml api"/>
+  <smtp file="fixtures/global.xml others/smtp" server="server"/>
+  <done/>
+</config>

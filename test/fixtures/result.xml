@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config>
+  <secrets foo="bar"/>
+  <paths>
+    <path key="foo"/>
+    <path key="bar"/>
+  </paths>
+  <api>this is API</api>
+  <smtp user="user" server="server"/>
+  <done/>
+</config>

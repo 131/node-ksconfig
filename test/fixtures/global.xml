@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<global>
+  <api>this is API</api>
+  <others>
+    <smtp user="user"/>
+  </others>
+</global>

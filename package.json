@@ -1,0 +1,37 @@
+{
+  "name": "ksconfig",
+  "version": "0.9.0",
+  "description": "A simple ks_config (yks config format) inliner for nodejs ",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run eslint && npm run mocha",
+    "eslint": "eslint .",
+    "checkall": "npm run eslint",
+    "mocha": "node node_modules/mocha/bin/_mocha -b",
+    "cover": "nyc mocha"
+  },
+  "devDependencies": {
+    "eslint-plugin-ivs": "^2.1.2",
+    "expect.js": "^0.3.1",
+    "mocha": "^3.1.2",
+    "nyc": "^15.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/131/node-ksconfig.git"
+  },
+  "keywords": [
+    "yks",
+    "ksconfig",
+    "config"
+  ],
+  "author": "131 <131.code@leurent.email>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/131/node-ksconfig/issues"
+  },
+  "homepage": "https://github.com/131/node-ksconfig#readme",
+  "dependencies": {
+    "xml2js": "^0.4.17"
+  }
+}
