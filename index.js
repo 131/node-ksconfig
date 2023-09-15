@@ -2,8 +2,8 @@
 const fs = require('fs');
 const path = require('path');
 
-
 const xml2js = require('xml2js');
+
 
 const promisify = function(fn, ctx) {
   if(ctx === undefined)
@@ -82,10 +82,18 @@ async  function inline(ctx, obj) {
   return obj;
 }
 
-module.exports = async function({wd = process.cwd()}, entrypoint) {
+module.exports = async function({replaceEnv = String, wd = process.cwd()}, entrypoint) {
+  let env = {};
+  if(typeof entrypoint == "object")
+    ({entrypoint, env} = entrypoint);
+
   let obj = await read_config({wd}, entrypoint);
+
   var builder = new Builder();
   var xml = builder.buildObject(obj);
+
+  xml = replaceEnv(xml, env);
+
   return xml;
 };
 
