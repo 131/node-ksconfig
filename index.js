@@ -85,7 +85,7 @@ async  function inline(ctx, obj) {
 module.exports = async function({replaceEnv = String, wd = process.cwd()}, entrypoint) {
   let env = {};
   if(typeof entrypoint == "object")
-    ({entrypoint, env} = entrypoint);
+    ({entrypoint, env, wd = wd} = entrypoint);
 
   let obj = await read_config({wd}, entrypoint);
 
