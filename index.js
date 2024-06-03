@@ -43,16 +43,17 @@ function dive(obj, path = []) {
   throw `Cannot find ${node}`;
 }
 
-async function read_config({wd = process.cwd()}, entry) {
-  let [entrypoint, root] = entry.split(' ');
-  let entrypoint_path = path.join(wd, entrypoint);
+async function read_config({root = process.cwd(), wd = process.cwd()}, entry) {
+  let [entrypoint, xpath_root] = entry.split(' ');
+
+  let entrypoint_path = path.join(entrypoint.startsWith('/') ? root : wd, entrypoint);
 
   let fromBody = fs.readFileSync(entrypoint_path, 'utf8');
   let obj = await  parseString(fromBody);
 
-  if(root) {
+  if(xpath_root) {
     obj = Object.entries(obj)[0][1];
-    obj = dive(obj, root.split('/'));
+    obj = dive(obj, xpath_root.split('/'));
   }
 
   obj = await   inline({wd}, obj);
